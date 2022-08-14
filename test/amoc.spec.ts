@@ -1,4 +1,4 @@
-import { getWarnings } from "./amoc";
+import { getWarnings } from "../src/floods/amoc";
 
 describe("getting data", () => {
   it("should download data", async () => {

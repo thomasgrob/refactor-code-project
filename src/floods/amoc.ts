@@ -27,7 +27,3 @@ export async function getWarnings() {
 
   client.close();
 }
-
-export function getWarning(id: string) {
-  //
-}

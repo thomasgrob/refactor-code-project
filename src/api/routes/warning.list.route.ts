@@ -1,6 +1,5 @@
 import express from "express";
-
-import warningListController from "../controllers/warning.list.controller";
+import { warningListController } from "../controllers/warning.list.controller";
 
 const router = express.Router();
 

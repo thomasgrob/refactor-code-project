@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { getWarnings } from '../../floods/amoc';
-import { getAmocToStateId } from '../../getAmocToStateId';
+import { getAmocToStateId } from "../utils";
 
-const warningList = async (req: Request, res: Response, next: NextFunction) => {
+export async function warningListController(req: Request, res: Response, next: NextFunction) {
     const data = await getWarnings();
     const state = getAmocToStateId(req.params.state);
 
@@ -13,7 +13,6 @@ const warningList = async (req: Request, res: Response, next: NextFunction) => {
         }
     }
 
-    res.send(results);
-};
-
-export default warningList;
+    // Send successful response
+    res.status(200).json(results);
+}

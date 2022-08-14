@@ -1,11 +1,12 @@
+import fs from "fs";
 import { Client } from "basic-ftp";
 
-import fs from "fs";
 
 export class Downloader {
   async download(key: string) {
     const client = new Client();
     client.ftp.verbose = true;
+
     try {
       await client.access({
         host: "ftp.bom.gov.au",
@@ -23,6 +24,7 @@ export class Downloader {
           }
         }
       }
+
       client.close();
 
       const data = this.readData(key);
@@ -30,10 +32,9 @@ export class Downloader {
       return data;
     } catch (err) {
       console.log(key + " file not found");
+      client.close();
       return "";
     }
-
-    client.close();
   }
 
   readData(key: string): string {
@@ -41,9 +42,10 @@ export class Downloader {
   }
 
   async downloadText(key: string) {
+    let warningText = "";
     const client = new Client();
     client.ftp.verbose = true;
-    let warningText = "";
+
     try {
       await client.access({
         host: "ftp.bom.gov.au",
@@ -52,13 +54,14 @@ export class Downloader {
 
       await client.cd("/anon/gen/fwo/");
 
-      await client.download(`./${key}.txt`, key + ".txt");
+      await client.downloadTo(`./${key}.txt`, key + ".txt");
 
       warningText = fs.readFileSync(`./${key}.txt`, {
         encoding: "utf-8",
       });
     } catch (err) {
       console.log(key + " file not found");
+      client.close();
       return "";
     }
 

@@ -1,4 +1,4 @@
-import { getAmocToStateId } from "./getAmocToStateId";
+import { getAmocToStateId } from "../src/api/utils";
 
 describe("getAmocToStateId", () => {
   test("that it returns all states", () => {

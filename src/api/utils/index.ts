@@ -16,7 +16,6 @@ export function getAmocToStateId(state: string): string {
       return "IDW";
     case "ACT":
       return "IDN";
-  }
-
-  return "unk";
+  };
+  return "UNK";
 }
