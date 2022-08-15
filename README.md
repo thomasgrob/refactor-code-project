@@ -1,7 +1,3 @@
-# Squiz backend refactoring code review
-
-This project is part of the Squiz product engineering interview process. The codebase has been written to contain multiple issues that could be identified and fixed by an engineer.
-
 ## Scenario
 
 Pretend you have just inherited this codebase from the business.
