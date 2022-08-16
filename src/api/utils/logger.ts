@@ -4,7 +4,7 @@ if (process.env.NODE_ENV == "production") {
   let stdLogger = console.log;
   let stdError = console.error;
 
-  var logFile = fs.createWriteStream("logs.log", { flags: "a" });
+  var logFile = fs.createWriteStream("./logs/logs.log", { flags: "a" });
 
   console.log = function (...args: any) {
     stdLogger(args);
