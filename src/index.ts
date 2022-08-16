@@ -13,8 +13,11 @@ const port = process.env.PORT || 3000;
 
 // Use gzip compression for faster responses
 app.use(compression());
+// Basic security headers
 app.use(helmet());
+// Allow cross-origin requests
 app.use(cors());
+app.disable('etag');
 
 // Mount the api routes
 app.use('/api', routes);

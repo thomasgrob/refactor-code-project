@@ -120,6 +120,7 @@ export class FloodWarningParser {
         resolve(data);
       });
     });
+    
     const downloader = new Downloader();
 
     const warningText = await downloader.downloadText(obj.amoc.identifier[0]);

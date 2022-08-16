@@ -7,9 +7,9 @@ export async function warningListController(req: Request, res: Response, next: N
         const data = await getWarnings();
         const state = getAmocToStateId(req.params.state);
 
-        let results = [];
-        for (let key in data) {
-            if (key.startsWith(state)) {
+        const results = [];
+        for (const key in data) {
+            if (key.indexOf(state) > -1) {
                 results.push(key.replace(/\.amoc\.xml/, ""));
             }
         }

@@ -14,9 +14,10 @@ export async function getWarnings() {
     const files = await client.list();
 
     let warns: any = {};
-    for (var file in files) {
-      if (files[file].name.endsWith(".amoc.xml")) {
-        warns[files[file].name] = true;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.name.endsWith(".amoc.xml")) {
+        warns[file.name] = true;
       }
     }
 
