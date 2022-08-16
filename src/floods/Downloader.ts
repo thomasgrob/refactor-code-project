@@ -20,7 +20,7 @@ export class Downloader {
       for (var file in files) {
         if (files[file].name.endsWith(".amoc.xml")) {
           if (`${key}.amoc.xml` == files[file].name) {
-            await client.download(`./${key}.xml`, files[file].name);
+            await client.download(`./src/downloads/${key}.xml`, files[file].name);
           }
         }
       }
@@ -28,7 +28,6 @@ export class Downloader {
       client.close();
 
       const data = this.readData(key);
-
       return data;
     } catch (err) {
       console.log(key + " file not found");
@@ -38,7 +37,7 @@ export class Downloader {
   }
 
   readData(key: string): string {
-    return fs.readFileSync(`./${key}.xml`, { encoding: "utf-8" });
+    return fs.readFileSync(`./src/downloads/${key}.xml`, { encoding: "utf-8" });
   }
 
   async downloadText(key: string) {
@@ -54,9 +53,9 @@ export class Downloader {
 
       await client.cd("/anon/gen/fwo/");
 
-      await client.downloadTo(`./${key}.txt`, key + ".txt");
+      await client.downloadTo(`./src/downloads/${key}.txt`, key + ".txt");
 
-      warningText = fs.readFileSync(`./${key}.txt`, {
+      warningText = fs.readFileSync(`./src/downloads/${key}.txt`, {
         encoding: "utf-8",
       });
     } catch (err) {
@@ -66,7 +65,6 @@ export class Downloader {
     }
 
     client.close();
-
     return warningText;
   }
 }

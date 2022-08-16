@@ -16,8 +16,9 @@ export async function warningListController(req: Request, res: Response, next: N
 
         // Send successful response
         return res.status(200).json(results);
-    } catch (error) {
+    } catch (err) {
+        console.error(err);
         // Send to our error handler middleware
-        next(error);
+        next(err);
     }
 }
