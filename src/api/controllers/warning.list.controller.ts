@@ -4,10 +4,6 @@ import { getAmocToStateId } from "../utils";
 
 export async function warningListController(req: Request, res: Response, next: NextFunction) {
     try {
-        let x: any;
-
-        console.log(Array.from(x));
-
         const data = await getWarnings();
         const state = getAmocToStateId(req.params.state);
 
@@ -19,8 +15,9 @@ export async function warningListController(req: Request, res: Response, next: N
         }
 
         // Send successful response
-        res.status(200).json(results);
-    } catch (e) {
-        next(e);
+        return res.status(200).json(results);
+    } catch (error) {
+        // Send to our error handler middleware
+        next(error);
     }
 }
