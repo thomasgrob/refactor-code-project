@@ -1,4 +1,4 @@
-import { parseXml } from "./parser";
+import { parseXml } from "../src/parser/parser";
 import fs from "fs";
 import path from "path";
 

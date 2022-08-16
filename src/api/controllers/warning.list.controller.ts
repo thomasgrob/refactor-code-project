@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { getWarnings } from '../../floods/amoc';
+import { getWarnings } from "../helpers/floods/amoc";
 import { getAmocToStateId } from "../utils";
 
 export async function warningListController(req: Request, res: Response, next: NextFunction) {

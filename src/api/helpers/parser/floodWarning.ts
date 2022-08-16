@@ -89,6 +89,7 @@ export class FloodWarningParser {
       expiry: await this.getEndTime(),
     };
   }
+
   async getIssueTime() {
     const obj: any = await new Promise((resolve, reject) => {
       parseXml(this.xmlString, (data) => {

@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
-import { Downloader } from '../../floods/Downloader';
-import { FloodWarningParser } from '../../parser/floodWarning';
+import { Request, Response, NextFunction } from "express";
+import { Downloader } from "../helpers/floods/Downloader";
+import { FloodWarningParser } from "../helpers/parser/floodWarning";
 
 export async function warningDetailController(req: Request, res: Response, next: NextFunction) {
     try {
